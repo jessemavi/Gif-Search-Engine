@@ -41,7 +41,7 @@ class App extends React.Component {
       if(err) {
         console.log(err);
       }
-      console.log(res.body.data[0]);
+      // console.log(res.body.data[0]);
       this.setState({gifs: res.body.data});
     });
   }
