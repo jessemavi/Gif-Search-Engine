@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/index';
+import GifList from '../components/GifList';
 import SearchBar from '../components/SearchBar';
 import '../styles/app.css';
 
@@ -10,6 +11,7 @@ class App extends React.Component {
     return(
       <div>
         <SearchBar onTermChange={this.props.actions.requestGifs} />
+        <GifList gifs={ this.props.gifs } />
       </div>
     );
   }
@@ -18,7 +20,7 @@ class App extends React.Component {
 // passes data to our container from our store. It makes the result of reducers available to our container as props.
 function mapStateToProps(state) {
   return {
-    gifs: state.gifs
+    gifs: state.gifs.data
   };
 }
 
